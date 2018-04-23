@@ -3,13 +3,10 @@
 import os
 import urllib.request
 import urllib.parse
-import httpUtils
 
 class MangaDownloader():
-  def __init__(self, mangas, path, parser):
-    self.mangas = mangas
-    self.path   = path
-    self.parser = parser
+  def __init__(self, provider):
+    self.provider = provider
     # Essential data
     self.data    = urllib.parse.urlencode({}).encode('ascii')
     self.headers = { 'User-Agent' : 'whatever' }
@@ -33,27 +30,6 @@ class MangaDownloader():
     opener.addheader('User-Agent', 'whatever')
     filename, headers = opener.retrieve(imagePath, imageName)
 
-  def get_file_name(self, vol, chapter, page):
-    return 'Vol' + self.get_vol_name(vol) + '-Ch' + self.get_chapter_name(chapter) + '-' + ('0' + str(page) if page < 10 else str(page)) + '.jpg'
-
-  def get_vol_name(self, volNumber):
-    if volNumber < 10:
-      return '00' + str(volNumber)
-    elif volNumber < 100:
-      return '0' + str(volNumber)
-    else:
-      return str(volNumber)
-
-  def get_chapter_name(self, chapterNumber):
-    if chapterNumber < 10:
-      return '000' + str(chapterNumber)
-    elif chapterNumber < 100:
-      return '00' + str(chapterNumber)
-    elif chapterNumber < 1000:
-      return '0' + str(chapterNumber)
-    else:
-      return str(chapterNumber)
-
   def make_directory(self, dirName):
     os.makedirs(dirName)
 
@@ -70,29 +46,7 @@ class MangaDownloader():
       else:
         print('Try number ' + str(timelimit))
         timelimit += 1
-    self.parser.feed(html)
+    self.provider.feed(html)
 
   def download_mangas(self):
-    for vol in self.mangas.keys():
-      currentPath = self.path
-      currentPath = currentPath.replace('VOL', str(vol))
-
-      for chapter in self.mangas[vol]:
-        path = currentPath
-        path = path.replace('CHAPTER', str(chapter))
-
-        # Try to get html from path
-        self.parse_html(path + '1')
-        
-        dirName = 'Vol ' + self.get_vol_name(vol) + '/Capitulo ' +  self.get_chapter_name(chapter) + ' - ' + self.parser.find_chapter_name(vol, chapter)
-        
-        self.make_directory(dirName)
-        lastPage = self.parser.data['lastPage'] + 1
-
-        for page in range(1, lastPage):
-          self.parse_html(path + str(page))
-
-          imageName = self.get_file_name(vol, chapter, page)
-          print(self.parser.data['imagePath'])
-          self.download_image(httpUtils.iri2uri(self.parser.data['imagePath']), dirName + '/' + imageName)
-          print('generate ' + dirName + '/' + imageName)
+    self.provider.download(self)
