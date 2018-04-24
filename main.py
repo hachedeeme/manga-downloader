@@ -1,7 +1,10 @@
 from providers.jokerFansub import JokerFansub
+from providers.inmanga     import Inmanga
 from mangaDownloader import MangaDownloader
 
 if __name__== "__main__":
+
+  # JOKERFANSUB #########################################################################################
   #############################
   ### Descarga de One Piece ###
   #############################
@@ -13,7 +16,7 @@ if __name__== "__main__":
 
   provider = JokerFansub(vols, 'http://reader.jokerfansub.com/read/_one_piece/es/', path)
   md = MangaDownloader(provider)
-  md.download_mangas()
+  # md.download_mangas()
    
   #####################################
   ### Descarga de Dragon Ball Super ###
@@ -30,3 +33,16 @@ if __name__== "__main__":
   provider = JokerFansub(vols, 'http://reader.jokerfansub.com/read/dragon_ball_super/es/', path)
   md = MangaDownloader(provider)
   # md.download_mangas()
+
+  # INMANGA #############################################################################################
+  # +===========+===========+
+  # |   NAME    | MANGA ID  |
+  # +===========+===========+
+  # | One Piece | one_piece |
+  # +-----------+-----------+
+
+  # print(range(598,599))
+
+  provider = Inmanga('One Piece', 'one_piece', range(598,903))
+  md = MangaDownloader(provider)
+  md.download_mangas()

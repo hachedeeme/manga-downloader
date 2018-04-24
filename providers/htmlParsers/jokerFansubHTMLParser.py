@@ -33,3 +33,6 @@ class JokerFansubHTMLParser(HTMLParser):
 
   def get_int_from(self, aString):
     return int(re.search(r'\d+', aString).group())
+
+  def reset_data(self):
+    pass

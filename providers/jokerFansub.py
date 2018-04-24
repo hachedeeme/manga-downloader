@@ -33,6 +33,3 @@ class JokerFansub(Provider):
           print(self.parser.data['imagePath'])
           downloader.download_image(httpUtils.iri2uri(self.parser.data['imagePath']), dirName + '/' + imageName)
           print('generate ' + dirName + '/' + imageName)
-
-  def feed(self, html):
-    self.parser.feed(html)

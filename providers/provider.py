@@ -1,5 +1,8 @@
 class Provider():
-  
+
+  def feed(self, html):
+    self.parser.feed(html)
+
   def get_file_name(self, vol, chapter, page):
     return 'Vol' + self.get_vol_name(vol) + '-Ch' + self.get_chapter_name(chapter) + '-' + ('0' + str(page) if page < 10 else str(page)) + '.jpg'
 
