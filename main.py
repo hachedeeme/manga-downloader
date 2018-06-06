@@ -2,7 +2,18 @@ from providers.jokerFansub import JokerFansub
 from providers.inmanga     import Inmanga
 from mangaDownloader import MangaDownloader
 
+# import os
+# import json
+
+
 if __name__== "__main__":
+
+  # with open('data.json') as json_data:
+  #   d = json.load(json_data)
+  #   print(d)
+
+  # dirname = os.path.dirname(os.path.abspath(__file__))
+  # print(dirname['boku_no_hero_academia'])
 
   # JOKERFANSUB #########################################################################################
   #############################
@@ -35,14 +46,24 @@ if __name__== "__main__":
   # md.download_mangas()
 
   # INMANGA #############################################################################################
-  # +===========+===========+
-  # |   NAME    | MANGA ID  |
-  # +===========+===========+
-  # | One Piece | one_piece |
-  # +-----------+-----------+
+  # +=======================+========================+
+  # |          NAME         |        MANGA ID        |
+  # +=======================+========================+
+  # | One Piece             | one_piece              |
+  # +-----------------------+------------------------+
+  # | Nanatsu No Taizai     | nanatsu_no_taizai      |
+  # +-----------------------+------------------------+
+  # | Noku No Hero Academia | boku_no_hero_academia  |
+  # +-----------------------+------------------------+
 
-  # print(range(598,599))
+  provider = Inmanga('one_piece', range(598,903))
+  md = MangaDownloader(provider)
+  # md.download_mangas()
 
-  provider = Inmanga('One Piece', 'one_piece', range(598,903))
+  provider = Inmanga('nanatsu_no_taizai', range(266, 271))
+  md = MangaDownloader(provider)
+  # md.download_mangas()
+
+  provider = Inmanga('boku_no_hero_academia', range(182, 186))
   md = MangaDownloader(provider)
   md.download_mangas()

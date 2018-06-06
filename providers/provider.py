@@ -1,3 +1,5 @@
+import json
+
 class Provider():
 
   def feed(self, html):
@@ -23,3 +25,9 @@ class Provider():
       return '0' + str(chapterNumber)
     else:
       return str(chapterNumber)
+
+  def load_data(self, jsonPath):
+    res = {}
+    with open(jsonPath) as data:
+      res = json.load(data)
+    return res
