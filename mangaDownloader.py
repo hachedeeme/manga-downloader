@@ -50,3 +50,6 @@ class MangaDownloader():
 
   def download_mangas(self):
     self.provider.download(self)
+
+  def upload(self):
+    self.provider.upload_data(self)

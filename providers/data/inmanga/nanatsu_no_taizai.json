@@ -1,6 +1,8 @@
 {
   "name": "Nanatsu No Taizai",
-  "caps": {
+  "last_chapter": 270,
+  "source_url": "https://inmanga.com/Chapter?id=14153bb3-e51b-4b2c-b212-ba8e656f0415",
+  "chapters": {
     "1":  "14153bb3-e51b-4b2c-b212-ba8e656f0415",
     "2":  "2392e4b5-3292-47ab-a3fc-a25c402f23ab",
     "3":  "00ac6007-501d-4d84-b8a1-d5f6d3dda5bc",

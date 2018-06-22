@@ -5,15 +5,7 @@ from mangaDownloader import MangaDownloader
 # import os
 # import json
 
-
 if __name__== "__main__":
-
-  # with open('data.json') as json_data:
-  #   d = json.load(json_data)
-  #   print(d)
-
-  # dirname = os.path.dirname(os.path.abspath(__file__))
-  # print(dirname['boku_no_hero_academia'])
 
   # JOKERFANSUB #########################################################################################
   #############################
@@ -55,15 +47,25 @@ if __name__== "__main__":
   # +-----------------------+------------------------+
   # | Noku No Hero Academia | boku_no_hero_academia  |
   # +-----------------------+------------------------+
+  # | Hajime no Ippo        | hajime_no_ippo         |
+  # +-----------------------+------------------------+
 
   provider = Inmanga('one_piece', range(598,903))
   md = MangaDownloader(provider)
   # md.download_mangas()
+  # md.upload()
 
   provider = Inmanga('nanatsu_no_taizai', range(266, 271))
   md = MangaDownloader(provider)
   # md.download_mangas()
+  # md.upload()
 
   provider = Inmanga('boku_no_hero_academia', range(182, 186))
   md = MangaDownloader(provider)
-  md.download_mangas()
+  # md.download_mangas()
+  # md.upload()
+
+  provider = Inmanga('hajime_no_ippo', range(504, 505))
+  md = MangaDownloader(provider)
+  # md.download_mangas()
+  # md.upload()

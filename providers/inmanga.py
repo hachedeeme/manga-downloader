@@ -1,22 +1,27 @@
 import httpUtils
 
-from providers.htmlParsers.inmangaHTMLParser import InmangaHTMLParser
+from providers.htmlParsers.inmangaHTMLParser   import InmangaHTMLParser
+from providers.updaters.inmangaChaptersUpdater import InmangaChaptersUpdater
+
 from providers.provider import Provider
 
 class Inmanga(Provider):
-  def __init__(self, mangaId, chapters):
+  def __init__(self, mangaId, chapters=[]):
     self.parser = InmangaHTMLParser()
     self.chapterUrl = 'https://inmanga.com/Chapter?id='
     self.imageUrl   = 'https://inmanga.com/page/getPageImage/?identification='
+    self.mangaId    = mangaId
     self.chapters   = chapters
-    
-    data = self.load_data('providers/data/inmanga/' + mangaId + '.json')
-    self.data       = data['caps']
-    self.mangaName  = data['name']
+    # ============================================================================================
+    dataFileUrl = 'providers/data/inmanga/' + mangaId + '.json'
+    # ============================================================================================
+    self.data = self.load_data(dataFileUrl)
+    self.updater   = InmangaChaptersUpdater(dataFileUrl, self.data)
+    self.mangaName = self.data['name']
 
   def download(self, downloader):
     for chapter in self.chapters:
-      downloader.parse_html(self.chapterUrl + self.data[str(chapter)])
+      downloader.parse_html(self.chapterUrl + self.data['chapters'][str(chapter)])
 
       dirName = self.mangaName + '/' + self.mangaName + ' ' +  self.get_chapter_name(chapter)
       downloader.make_directory(dirName)
@@ -28,3 +33,7 @@ class Inmanga(Provider):
         print('Generate: ' + dirName + '/' + imageName)
 
       self.parser.reset_data()
+
+  def upload_data(self, downloader):
+    htmlSource = downloader.get_html(self.data['source_url'])
+    self.updater.upload(htmlSource)

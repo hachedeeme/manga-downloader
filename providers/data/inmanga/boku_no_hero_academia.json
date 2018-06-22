@@ -1,6 +1,8 @@
 {
   "name": "Boku No Hero Academia",
-  "caps": {
+  "last_chapter": 185,
+  "source_url": "https://inmanga.com/Chapter?id=46abae49-7e4e-4bb5-80c6-e04e284de514",
+  "chapters": {
     "1":  "46abae49-7e4e-4bb5-80c6-e04e284de514",
     "2":  "991d2f75-8196-4e77-bb19-163319c4d6b7",
     "3":  "a8cff17f-ad2b-4105-97e8-9811c891e249",
