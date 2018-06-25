@@ -48,8 +48,15 @@ class MangaDownloader():
         timelimit += 1
     self.provider.feed(html)
 
+  def upload_and_donwload_last(self):
+    self.upload()
+    self.download_last_manga()
+
   def download_mangas(self):
     self.provider.download(self)
 
   def upload(self):
     self.provider.upload_data(self)
+
+  def download_last_manga(self):
+    self.provider.download_last_manga(self)

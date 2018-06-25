@@ -21,19 +21,25 @@ class Inmanga(Provider):
 
   def download(self, downloader):
     for chapter in self.chapters:
-      downloader.parse_html(self.chapterUrl + self.data['chapters'][str(chapter)])
+      self.download_chapter(downloader, chapter)
 
-      dirName = self.mangaName + '/' + self.mangaName + ' ' +  self.get_chapter_name(chapter)
-      downloader.make_directory(dirName)
+  def download_chapter(self, downloader, chapter):
+    downloader.parse_html(self.chapterUrl + self.data['chapters'][str(chapter)])
 
-      for page in sorted(self.parser.data):
-        imageName = self.mangaName + ' ' +  self.get_chapter_name(chapter) + '-' + ('0' + str(page) if page < 10 else str(page)) + '.jpg'
-        print('Image Url: ' + self.imageUrl + self.parser.data[page])
-        downloader.download_image(httpUtils.iri2uri(self.imageUrl + self.parser.data[page]), dirName + '/' + imageName)
-        print('Generate: ' + dirName + '/' + imageName)
+    dirName = self.mangaName + '/' + self.mangaName + ' ' +  self.get_chapter_name(chapter)
+    downloader.make_directory(dirName)
 
-      self.parser.reset_data()
+    for page in sorted(self.parser.data):
+      imageName = self.mangaName + ' ' +  self.get_chapter_name(chapter) + '-' + ('0' + str(page) if page < 10 else str(page)) + '.jpg'
+      print('Image Url: ' + self.imageUrl + self.parser.data[page])
+      downloader.download_image(httpUtils.iri2uri(self.imageUrl + self.parser.data[page]), dirName + '/' + imageName)
+      print('Generate: ' + dirName + '/' + imageName)
+
+    self.parser.reset_data() # Reset de data for next chapter
 
   def upload_data(self, downloader):
     htmlSource = downloader.get_html(self.data['source_url'])
     self.updater.upload(htmlSource)
+
+  def download_last_manga(self, downloader):
+    self.download_chapter(downloader, self.data['last_chapter'])

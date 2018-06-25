@@ -16,5 +16,5 @@ class InmangaHTMLParser(HTMLParser):
             self.pageCounter += 1
 
   def reset_data(self):
-    self.data  = {}
+    self.data = {}
     self.pageCounter = 1;

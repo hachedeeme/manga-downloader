@@ -7,7 +7,7 @@ from mangaDownloader import MangaDownloader
 
 if __name__== "__main__":
 
-  # JOKERFANSUB #########################################################################################
+  # JOKERFANSUB ################################################################################################################
   #############################
   ### Descarga de One Piece ###
   #############################
@@ -37,7 +37,7 @@ if __name__== "__main__":
   md = MangaDownloader(provider)
   # md.download_mangas()
 
-  # INMANGA #############################################################################################
+  # INMANGA ####################################################################################################################
   # +=======================+========================+
   # |          NAME         |        MANGA ID        |
   # +=======================+========================+
@@ -49,23 +49,32 @@ if __name__== "__main__":
   # +-----------------------+------------------------+
   # | Hajime no Ippo        | hajime_no_ippo         |
   # +-----------------------+------------------------+
+  # | Dragon Ball Super     | dragon_ball_super      |
+  # +-----------------------+------------------------+
 
   provider = Inmanga('one_piece', range(598,903))
   md = MangaDownloader(provider)
-  # md.download_mangas()
   # md.upload()
+  # md.download_mangas()
+  # md.download_last_manga()
 
-  provider = Inmanga('nanatsu_no_taizai', range(266, 271))
+  provider = Inmanga('nanatsu_no_taizai', range(271, 273))
   md = MangaDownloader(provider)
-  # md.download_mangas()
   # md.upload()
+  # md.download_mangas()
 
   provider = Inmanga('boku_no_hero_academia', range(182, 186))
   md = MangaDownloader(provider)
-  # md.download_mangas()
   # md.upload()
+  # md.download_mangas()
+  # md.upload_and_donwload_last()
 
   provider = Inmanga('hajime_no_ippo', range(504, 505))
   md = MangaDownloader(provider)
-  # md.download_mangas()
   # md.upload()
+  # md.download_mangas()
+  
+  provider = Inmanga('dragon_ball_super', [37])
+  md = MangaDownloader(provider)
+  # md.upload()
+  # md.download_mangas()
