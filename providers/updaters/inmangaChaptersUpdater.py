@@ -10,7 +10,7 @@ class InmangaChaptersUpdater():
   def upload(self, source):
     missingData = self.get_upload(source, self.data['last_chapter'])
     if not missingData:
-      print('Data of ' + self.data['name'] + ' manga is Already Updated.')
+      print("Data of %s manga on Inmanga provider is Already Updated. Current chapter in 'https://inmanga.com' is: %s." % (self.data['name'], self.data['last_chapter']))
     else:
       upload_list = []
       for chapterId, chapterNumber in missingData:
