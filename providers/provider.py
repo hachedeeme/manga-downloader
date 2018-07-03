@@ -2,6 +2,17 @@ import json
 
 class Provider():
 
+  def download(self, downloader):
+    for chapter in self.chapters:
+      self.download_chapter(downloader, chapter)
+  
+  def upload_data(self, downloader):
+    htmlSource = downloader.get_html(self.data['source_url'])
+    self.updater.upload(htmlSource)
+
+  def download_last_manga(self, downloader):
+    self.download_chapter(downloader, self.data['last_chapter'])
+
   def feed(self, html):
     self.parser.feed(html)
 
@@ -31,3 +42,6 @@ class Provider():
     with open(jsonPath) as data:
       res = json.load(data)
     return res
+
+  def get_dir_name(self, chapter):
+    return self.mangaName + '/' + self.mangaName + ' ' +  self.get_chapter_name(chapter)

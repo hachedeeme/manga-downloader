@@ -23,7 +23,7 @@ class JokerFansubHTMLParser(HTMLParser):
           self.data['lastPage'] = self.get_int_from(value) + 1
 
   def find_chapter_name(self, vol, chapter):
-    ref = ('href',self.path + str(vol) + '/' + str(chapter) + '/')
+    ref = ('href', self.path + str(vol) + '/' + str(chapter) + '/')
     for attr in self.attrs:
       if ref in attr:
         return self.get_title(attr[1][1])

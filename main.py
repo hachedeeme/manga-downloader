@@ -17,25 +17,26 @@ if __name__== "__main__":
   news  = { 93: [865] }
   vols  = news
 
-  provider = JokerFansub(vols, 'http://reader.jokerfansub.com/read/_one_piece/es/', path)
+  provider = JokerFansub('one_piece', [327, 906])
   md = MangaDownloader(provider)
-  # md.download_mangas()
+  # md.upload()
+  md.download_mangas()
    
-  #####################################
-  ### Descarga de Dragon Ball Super ###
-  #####################################
-  path = 'http://reader.jokerfansub.com/read/dragon_ball_super/es/VOL/CHAPTER/page/'
-  vols = {
-    5: [29, 28, 27], 
-    4: [26, 25], 
-    3: [24, 23, 22, 21, 20, 19, 18, 17], 
-    2: [16, 15, 14, 13, 12, 11, 10, 9, 8, 7], 
-    1: [6, 5, 4, 3, 2, 1]
-  }
+  # #####################################
+  # ### Descarga de Dragon Ball Super ###
+  # #####################################
+  # path = 'http://reader.jokerfansub.com/read/dragon_ball_super/es/VOL/CHAPTER/page/'
+  # vols = {
+  #   5: [29, 28, 27], 
+  #   4: [26, 25], 
+  #   3: [24, 23, 22, 21, 20, 19, 18, 17], 
+  #   2: [16, 15, 14, 13, 12, 11, 10, 9, 8, 7], 
+  #   1: [6, 5, 4, 3, 2, 1]
+  # }
 
-  provider = JokerFansub(vols, 'http://reader.jokerfansub.com/read/dragon_ball_super/es/', path)
-  md = MangaDownloader(provider)
-  # md.download_mangas()
+  # provider = JokerFansub(vols, 'http://reader.jokerfansub.com/read/dragon_ball_super/es/', path)
+  # md = MangaDownloader(provider)
+  # # md.download_mangas()
 
   # INMANGA ####################################################################################################################
   # +=======================+========================+
@@ -51,30 +52,15 @@ if __name__== "__main__":
   # +-----------------------+------------------------+
   # | Dragon Ball Super     | dragon_ball_super      |
   # +-----------------------+------------------------+
+  providers = {
+    'op'  : Inmanga('one_piece'),
+    'nnt' : Inmanga('nanatsu_no_taizai'),
+    'bnha': Inmanga('boku_no_hero_academia'),
+    'hni' : Inmanga('hajime_no_ippo'),
+    'dbs' : Inmanga('dragon_ball_super')
+  }
 
-  provider = Inmanga('one_piece', range(598,903))
-  md = MangaDownloader(provider)
-  # md.upload()
-  # md.download_mangas()
-  # md.download_last_manga()
-
-  provider = Inmanga('nanatsu_no_taizai', range(271, 273))
-  md = MangaDownloader(provider)
-  # md.upload()
-  # md.download_mangas()
-
-  provider = Inmanga('boku_no_hero_academia', range(182, 186))
-  md = MangaDownloader(provider)
+  md = MangaDownloader(providers['op'])
   # md.upload()
   # md.download_mangas()
   # md.upload_and_donwload_last()
-
-  provider = Inmanga('hajime_no_ippo', range(504, 505))
-  md = MangaDownloader(provider)
-  # md.upload()
-  # md.download_mangas()
-  
-  provider = Inmanga('dragon_ball_super', [37])
-  md = MangaDownloader(provider)
-  # md.upload()
-  # md.download_mangas()

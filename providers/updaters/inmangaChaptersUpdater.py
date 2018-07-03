@@ -20,7 +20,7 @@ class InmangaChaptersUpdater():
       
       with open(self.file_url, 'w') as data_json:
         json.dump(self.data, data_json, sort_keys=True)
-        print('Updated chapters ' + str(upload_list) + ' of ' + self.data['name'])
+        print('Updated chapters %s of %s manga.' % (upload_list, self.data['name']))
 
   def get_upload(self, source, currentManga):
     allChapters = self.find_chapters(source)

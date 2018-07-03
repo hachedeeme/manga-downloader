@@ -10,7 +10,6 @@ class Inmanga(Provider):
     self.parser = InmangaHTMLParser()
     self.chapterUrl = 'https://inmanga.com/Chapter?id='
     self.imageUrl   = 'https://inmanga.com/page/getPageImage/?identification='
-    self.mangaId    = mangaId
     self.chapters   = chapters
     # ============================================================================================
     dataFileUrl = 'providers/data/inmanga/' + mangaId + '.json'
@@ -18,10 +17,6 @@ class Inmanga(Provider):
     self.data = self.load_data(dataFileUrl)
     self.updater   = InmangaChaptersUpdater(dataFileUrl, self.data)
     self.mangaName = self.data['name']
-
-  def download(self, downloader):
-    for chapter in self.chapters:
-      self.download_chapter(downloader, chapter)
 
   def download_chapter(self, downloader, chapter):
     downloader.parse_html(self.chapterUrl + self.data['chapters'][str(chapter)])
@@ -36,10 +31,3 @@ class Inmanga(Provider):
       print('Generate: ' + dirName + '/' + imageName)
 
     self.parser.reset_data() # Reset de data for next chapter
-
-  def upload_data(self, downloader):
-    htmlSource = downloader.get_html(self.data['source_url'])
-    self.updater.upload(htmlSource)
-
-  def download_last_manga(self, downloader):
-    self.download_chapter(downloader, self.data['last_chapter'])
