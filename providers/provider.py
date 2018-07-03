@@ -13,6 +13,9 @@ class Provider():
   def download_last_manga(self, downloader):
     self.download_chapter(downloader, self.data['last_chapter'])
 
+  def set_chapters(self, chapters):
+    self.chapters = chapters
+
   def feed(self, html):
     self.parser.feed(html)
 
