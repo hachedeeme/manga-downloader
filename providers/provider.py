@@ -5,13 +5,25 @@ class Provider():
   def download(self, downloader):
     for chapter in self.chapters:
       self.download_chapter(downloader, chapter)
+
+  def download_last_manga(self, downloader):
+    self.download_chapter(downloader, self.data['last_chapter'])
+
+  def download_last(self, downloader, amount):
+    lastManga = self.data['last_chapter'] + 1
+    firsManga = lastManga - amount
+    # ========================================================================
+    print("Downloading from %s to %s." % (firsManga, lastManga - 1))
+    # ========================================================================
+    for chapter in range(firsManga, lastManga):
+      self.download_chapter(downloader, chapter)
+
+  def download_chapter(self, downloader, chapter):
+    pass
   
   def upload_data(self, downloader):
     htmlSource = downloader.get_html(self.data['source_url'])
     self.updater.upload(htmlSource)
-
-  def download_last_manga(self, downloader):
-    self.download_chapter(downloader, self.data['last_chapter'])
 
   def set_chapters(self, chapters):
     self.chapters = chapters

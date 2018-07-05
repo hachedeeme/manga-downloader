@@ -60,3 +60,7 @@ class MangaDownloader():
 
   def download_last_manga(self):
     self.provider.download_last_manga(self)
+
+  def download_last(self, amount):
+    self.upload()
+    self.provider.download_last(self, amount)

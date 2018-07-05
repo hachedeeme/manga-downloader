@@ -29,10 +29,11 @@ if __name__== "__main__":
       'dbs' : Inmanga('dragon_ball_super')
     }
   }
-  provider = providers['inmanga']['op']
+  provider = providers['inmanga']['nnt']
   # provider.set_chapters([900])
 
   md = MangaDownloader(provider)
   # md.upload()
   # md.download_mangas()
   # md.upload_and_donwload_last()
+  # md.download_last(4)
