@@ -6,8 +6,6 @@ class ProviderChaptersUpdater():
     self.data    = data
     self.mangaName    = self.data['name']
     self.lastChapter  = self.data['last_chapter']
-    self.providerName = 'Inmanga'
-    self.providerURL  = 'https://inmanga.com'
 
   def upload(self, source):
     missingData = self.get_upload(source, self.data['last_chapter'])

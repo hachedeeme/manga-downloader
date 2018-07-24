@@ -1,6 +1,7 @@
 from mangaDownloader       import MangaDownloader
 from providers.jokerFansub import JokerFansub
 from providers.inmanga     import Inmanga
+from providers.kissmanga   import Kissmanga
 
 if __name__== "__main__":
   # +=======================+========================+=============+=========+
@@ -27,10 +28,14 @@ if __name__== "__main__":
       'bnha': Inmanga('boku_no_hero_academia'),
       'hni' : Inmanga('hajime_no_ippo'),
       'dbs' : Inmanga('dragon_ball_super')
+    },
+    "kissmanga": {
+      'op' : Kissmanga('one_piece_color')
     }
   }
-  provider = providers['inmanga']['nnt']
-  # provider.set_chapters([900])
+  
+  provider = providers['jokerfansub']['op']
+  # provider.set_chapters([910])
 
   md = MangaDownloader(provider)
   # md.upload()
