@@ -4,6 +4,14 @@ import os
 import urllib.request
 import urllib.parse
 
+# import urllib.request
+# url = 'https://httpbin.org/user-agent'
+# user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36'
+# request = urllib.request.Request(url,headers={'User-Agent': user_agent})
+# response = urllib.request.urlopen(request)
+# html = response.read()
+# print(html)
+
 class MangaDownloader():
   def __init__(self, provider):
     self.provider = provider
@@ -32,6 +40,9 @@ class MangaDownloader():
 
   def make_directory(self, dirName):
     os.makedirs(dirName)
+
+  def test_server_connection(self, imageUrl):
+    self.download_image(imageUrl, 'success.jpg')
 
   def parse_html(self, path):
     timelimit = 1
@@ -64,3 +75,6 @@ class MangaDownloader():
   def download_last(self, amount):
     self.upload()
     self.provider.download_last(self, amount)
+
+# downloader = MangaDownloader(1)
+# downloader.test_server_connection('https://img1.tumangaonline.me/uploads/5af30e329b6b7/Ookii-Onnanoko-wa-Daisuki-Desu-ka-Ch.1-005.jpg')
