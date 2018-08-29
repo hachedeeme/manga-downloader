@@ -39,26 +39,12 @@ if __name__== "__main__":
   }
   
   provider = providers['jokerfansub']['op']
-  # provider.set_chapters([910])
 
   provider = providers['ninemanga']['ps']
-  
+  provider.set_chapters([157])
+
   md = MangaDownloader(provider)
-  md.upload()
+  # md.upload()
   # md.download_mangas()
   # md.upload_and_donwload_last()
   # md.download_last(4)
-
-# upda = Ninemanga('prison_school')
-# upda = upda.updater
-
-# ss = md.get_html(upda.data['source_url'])
-
-# res = upda.find_chapters(ss)
-
-# ll = 278
-# for x in res:
-#   print(x)
-#   last = upda.verify_chapter(ll, x[0])
-#   ll = last[0]
-#   print(last)
