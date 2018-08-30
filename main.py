@@ -34,6 +34,8 @@ if __name__== "__main__":
       'op' : Kissmanga('one_piece_color')
     },
     "ninemanga": {
+      'ookii': Ninemanga('ookii_onnanoko_wa_daisuki'),
+      'mh'   : Ninemanga('mouhitsu_hallucination'),
       'ps'   : Ninemanga('prison_school'),
       'nnt'  : Ninemanga('nanatsu_no_taizai'),
       'bnha' : Ninemanga('boku_no_hero_academia'),
@@ -43,7 +45,7 @@ if __name__== "__main__":
   }
   
   provider = providers['jokerfansub']['op']
-  provider = providers['ninemanga']['bnhav']
+  provider = providers['ninemanga']['mh']
   # provider.set_chapters([157])
   # provider.set_chapters(range(928,999))
 

@@ -37,5 +37,8 @@ class NinemangaChaptersUpdater(ProviderChaptersUpdater):
     # enumera las excepciones
     exeptions = {}
     for chapter in chapters:
-      exeptions[chapter[0]] = { "chapter_number": int(chapter[1][0]), "key": ".".join(chapter[1]) }
+      if chapter[1]:
+        exeptions[chapter[0]] = { "chapter_number": int(chapter[1][0]), "key": ".".join(chapter[1]) }
+      else:
+        exeptions[chapter[0]] = { "chapter_number": 0, "key": chapter[0] }
     print(exeptions)
