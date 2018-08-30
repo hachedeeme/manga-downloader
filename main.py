@@ -34,16 +34,21 @@ if __name__== "__main__":
       'op' : Kissmanga('one_piece_color')
     },
     "ninemanga": {
-      'ps' : Ninemanga('prison_school')
+      'ps'   : Ninemanga('prison_school'),
+      'nnt'  : Ninemanga('nanatsu_no_taizai'),
+      'bnha' : Ninemanga('boku_no_hero_academia'),
+      'bnhav': Ninemanga('vigilante_boku_no_hero_academia'),
+      'hni'  : Ninemanga('hajime_no_ippo')
     }
   }
   
   provider = providers['jokerfansub']['op']
-
-  provider = providers['ninemanga']['ps']
-  provider.set_chapters([157])
+  provider = providers['ninemanga']['bnhav']
+  # provider.set_chapters([157])
+  # provider.set_chapters(range(928,999))
 
   md = MangaDownloader(provider)
+  # md.enumerate_exceptions()
   # md.upload()
   # md.download_mangas()
   # md.upload_and_donwload_last()

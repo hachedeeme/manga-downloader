@@ -35,5 +35,7 @@ class NinemangaChaptersUpdater(ProviderChaptersUpdater):
     filter_exceptions = lambda data: len(data[1]) != 1 # Cuando se encuentran más de un número de capítulo
     chapters = list(filter(filter_exceptions, map(parse_data, res)))
     # enumera las excepciones
+    exeptions = {}
     for chapter in chapters:
-      print(chapter[0])
+      exeptions[chapter[0]] = { "chapter_number": int(chapter[1][0]), "key": ".".join(chapter[1]) }
+    print(exeptions)

@@ -60,3 +60,7 @@ class Provider():
 
   def get_dir_name(self, chapter):
     return self.mangaName + '/' + self.mangaName + ' ' +  self.get_chapter_name(chapter)
+
+  def enumerate_exceptions(self, downloader):
+    htmlSource = downloader.get_html(self.data['source_url'])
+    self.updater.enumerate_exceptions(htmlSource)

@@ -76,5 +76,8 @@ class MangaDownloader():
     self.upload()
     self.provider.download_last(self, amount)
 
+  def enumerate_exceptions(self):
+    self.provider.enumerate_exceptions(self)
+
 # downloader = MangaDownloader(1)
 # downloader.test_server_connection('https://img1.tumangaonline.me/uploads/5af30e329b6b7/Ookii-Onnanoko-wa-Daisuki-Desu-ka-Ch.1-005.jpg')
