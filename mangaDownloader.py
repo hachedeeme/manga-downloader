@@ -17,7 +17,7 @@ class MangaDownloader():
     self.provider = provider
     # Essential data
     self.data    = urllib.parse.urlencode({}).encode('ascii')
-    self.headers = { 'User-Agent' : 'whatever' }
+    self.headers = { 'User-Agent' : 'Mozilla/5.0' }
 
   def get_html(self, currentPath):
     html = ""
@@ -35,8 +35,18 @@ class MangaDownloader():
 
   def download_image(self, imagePath, imageName):
     opener = urllib.request.URLopener()
-    opener.addheader('User-Agent', 'whatever')
-    filename, headers = opener.retrieve(imagePath, imageName)
+    opener.addheader('User-Agent', 'Mozilla/5.0')
+    try_number = 1
+    ok = False
+    while not ok and try_number < 10:
+      try:
+        filename, headers = opener.retrieve(imagePath, imageName)
+      except Exception as e:
+        print("It's fail for: " + str(e))
+        try_number += 1
+        print('Try number ' + str(try_number))
+      finally:
+        ok = True
 
   def make_directory(self, dirName):
     os.makedirs(dirName)
@@ -45,18 +55,18 @@ class MangaDownloader():
     self.download_image(imageUrl, 'success.jpg')
 
   def parse_html(self, path):
-    timelimit = 1
+    try_number = 1
     ok = False
     html = ""
-    while not ok and timelimit < 10:
+    while not ok and try_number < 10:
       print('try get first time from: ' + path)
       html = self.get_html(path)
       if not (html == ""):
         print("It's okey")
         ok = True
       else:
-        print('Try number ' + str(timelimit))
-        timelimit += 1
+        print('Try number ' + str(try_number))
+        try_number += 1
     self.provider.feed(html)
 
   def upload_and_donwload_last(self):

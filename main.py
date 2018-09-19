@@ -37,6 +37,7 @@ if __name__== "__main__":
       'ookii': Ninemanga('ookii_onnanoko_wa_daisuki'),
       'mh'   : Ninemanga('mouhitsu_hallucination'),
       'ps'   : Ninemanga('prison_school'),
+      'hikyu': Ninemanga('haikyuu'),
       'nnt'  : Ninemanga('nanatsu_no_taizai'),
       'bnha' : Ninemanga('boku_no_hero_academia'),
       'bnhav': Ninemanga('vigilante_boku_no_hero_academia'),
@@ -45,9 +46,9 @@ if __name__== "__main__":
   }
   
   provider = providers['jokerfansub']['op']
-  provider = providers['ninemanga']['mh']
-  # provider.set_chapters([157])
-  # provider.set_chapters(range(928,999))
+  provider = providers['ninemanga']['hni']
+  # provider.set_chapters([978,979])
+  provider.set_chapters(range(1201,1226))
 
   md = MangaDownloader(provider)
   # md.enumerate_exceptions()
