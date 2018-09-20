@@ -40,19 +40,20 @@ if __name__== "__main__":
       'hikyu': Ninemanga('haikyuu'),
       'nnt'  : Ninemanga('nanatsu_no_taizai'),
       'bnha' : Ninemanga('boku_no_hero_academia'),
-      'bnhav': Ninemanga('vigilante_boku_no_hero_academia'),
+      'vbnha': Ninemanga('vigilante_boku_no_hero_academia'),
+      'bbt'  : Ninemanga('boin_boin_teacher'),
       'hni'  : Ninemanga('hajime_no_ippo')
     }
   }
   
   provider = providers['jokerfansub']['op']
-  provider = providers['ninemanga']['hni']
+  provider = providers['ninemanga']['bbt']
   # provider.set_chapters([978,979])
-  provider.set_chapters(range(1201,1226))
+  provider.set_chapters(range(1,46))
 
   md = MangaDownloader(provider)
   # md.enumerate_exceptions()
   # md.upload()
-  # md.download_mangas()
+  md.download_mangas()
   # md.upload_and_donwload_last()
   # md.download_last(4)

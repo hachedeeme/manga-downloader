@@ -226,6 +226,10 @@
     "278": "http://es.ninemanga.com/chapter/Nanatsu%20no%20Taizai/731239.html",
     "279": "http://es.ninemanga.com/chapter/Nanatsu%20no%20Taizai/733164.html",
     "28": "http://es.ninemanga.com/chapter/Nanatsu%20no%20Taizai/191106.html",
+    "280": "http://es.ninemanga.com/chapter/Nanatsu%20no%20Taizai/736318.html",
+    "281": "http://es.ninemanga.com/chapter/Nanatsu%20no%20Taizai/738410.html",
+    "281.5": "http://es.ninemanga.com/chapter/Nanatsu%20no%20Taizai/738447.html",
+    "282": "http://es.ninemanga.com/chapter/Nanatsu%20no%20Taizai/740562.html",
     "29": "http://es.ninemanga.com/chapter/Nanatsu%20no%20Taizai/191108.html",
     "3": "http://es.ninemanga.com/chapter/Nanatsu%20no%20Taizai/191051.html",
     "30": "http://es.ninemanga.com/chapter/Nanatsu%20no%20Taizai/191110.html",
@@ -453,6 +457,10 @@
       "chapter_number": 275,
       "key": "275.5"
     },
+    "Nanatsu no Taizai Capítulo 281.50": {
+      "chapter_number": 281,
+      "key": "281.5"
+    },
     "Nanatsu no Taizai Capítulo 37.5": {
       "chapter_number": 37,
       "key": "37.5"
@@ -462,7 +470,7 @@
       "key": "62.5"
     }
   },
-  "last_chapter": 279,
+  "last_chapter": 282,
   "name": "Nanatsu No Taizai",
   "source_url": "http://es.ninemanga.com/manga/Nanatsu+no+Taizai.html?waring=1"
 }
