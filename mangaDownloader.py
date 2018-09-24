@@ -86,6 +86,9 @@ class MangaDownloader():
     self.upload()
     self.provider.download_last(self, amount)
 
+  def download_full_manga(self):
+    self.provider.download_full_manga(self)
+
   def enumerate_exceptions(self):
     self.provider.enumerate_exceptions(self)
 

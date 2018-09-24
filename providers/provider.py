@@ -9,6 +9,9 @@ class Provider():
   def download_last_manga(self, downloader):
     self.download_chapter(downloader, self.data['last_chapter'])
 
+  def download_full_manga(self, downloader):
+    self.download_last(downloader, self.data['last_chapter'])
+
   def download_last(self, downloader, amount):
     lastManga = self.data['last_chapter'] + 1
     firsManga = lastManga - amount

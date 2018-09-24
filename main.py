@@ -57,6 +57,7 @@ if __name__== "__main__":
   # provider.set_chapters(range(1,46))
 
   md = MangaDownloader(provider)
+  # md.download_full_manga()
   # md.enumerate_exceptions()
   # md.upload()
   # md.download_mangas()
