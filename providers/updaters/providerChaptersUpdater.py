@@ -36,3 +36,9 @@ class ProviderChaptersUpdater():
     else:
       msg += 's %s at %s' % (chapters[0], chapters[-1])
     return 'Updated %s of %s manga.' % (msg, name)
+
+  # =============================================================================
+  # ACCESSORS
+  # =============================================================================
+  def get_numbers_on_title(self):
+    return self.data['numbers_on_title'] if 'numbers_on_title' in self.data else []

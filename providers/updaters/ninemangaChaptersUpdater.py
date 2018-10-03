@@ -30,7 +30,7 @@ class NinemangaChaptersUpdater(ProviderChaptersUpdater):
     return self.data['exeptions'][key]
 
   def enumerate_exceptions(self, source):
-    parse_data = lambda data: (data[1], re.findall('\d+', data[1]))
+    parse_data = lambda data: (data[1], self.get_chapter_number(data[1]))
     res = re.findall('<a class="chapter_list_a" href="(.*)" title="(.*)">(.*)</a>', source)
     filter_exceptions = lambda data: len(data[1]) != 1 # Cuando se encuentran más de un número de capítulo
     chapters = list(filter(filter_exceptions, map(parse_data, res)))
@@ -42,3 +42,9 @@ class NinemangaChaptersUpdater(ProviderChaptersUpdater):
       else:
         exeptions[chapter[0]] = { "chapter_number": 0, "key": chapter[0] }
     print(exeptions)
+
+  def get_chapter_number(self, source):
+    res = re.findall('\d+', source)
+    for number in self.get_numbers_on_title():
+      res.remove(number)
+    return res
