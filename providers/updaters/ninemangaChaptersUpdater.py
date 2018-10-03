@@ -23,7 +23,7 @@ class NinemangaChaptersUpdater(ProviderChaptersUpdater):
     return list(map(parse_data, res))
 
   def get_chapter_number_data(self, strSource):
-    chapter_number = re.findall('\d+', strSource)
+    chapter_number = self.get_chapter_number(strSource)
     return { "key": str(chapter_number[0]), "chapter_number": int(chapter_number[0]) } if len(chapter_number) == 1 else self.get_exception(strSource)
 
   def get_exception(self, key):
